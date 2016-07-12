@@ -1,4 +1,4 @@
-package cn.sunner.autosmstocalendar;
+package cn.sunner.smstocalendar;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

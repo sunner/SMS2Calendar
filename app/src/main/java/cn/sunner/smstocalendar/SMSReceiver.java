@@ -1,4 +1,4 @@
-package cn.sunner.autosmstocalendar;
+package cn.sunner.smstocalendar;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

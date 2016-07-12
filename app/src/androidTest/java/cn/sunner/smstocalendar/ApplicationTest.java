@@ -1,4 +1,4 @@
-package cn.sunner.autosmstocalendar;
+package cn.sunner.smstocalendar;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
