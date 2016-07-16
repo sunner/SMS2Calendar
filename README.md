@@ -1,2 +1,2 @@
-# AutoSMStoCalendar
-Auto add events in SMS to calendar
+# SMS to Calendar
+Add events in SMSes to calendar

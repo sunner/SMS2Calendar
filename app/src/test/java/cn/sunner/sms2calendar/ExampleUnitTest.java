@@ -1,4 +1,4 @@
-package cn.sunner.smstocalendar;
+package cn.sunner.sms2calendar;
 
 import org.junit.Test;
 

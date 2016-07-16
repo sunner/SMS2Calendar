@@ -1,4 +1,4 @@
-package cn.sunner.smstocalendar;
+package cn.sunner.sms2calendar;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

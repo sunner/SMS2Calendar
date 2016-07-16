@@ -1,4 +1,4 @@
-package cn.sunner.smstocalendar;
+package cn.sunner.sms2calendar;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
