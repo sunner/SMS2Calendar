@@ -1,5 +1,6 @@
 package cn.sunner.sms2calendar;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,7 +27,7 @@ public class N12306Parser extends SMSParser {
         this.title = m.group(3);
         this.location = m.group(4);
         this.date = new GregorianCalendar(
-                2016,   //TODO: this year
+                Calendar.getInstance().get(Calendar.YEAR),   // Use this year
                 Integer.parseInt(m.group(1)),   // Month
                 Integer.parseInt(m.group(2)),   // Day
                 Integer.parseInt(m.group(5)),   // Hour
