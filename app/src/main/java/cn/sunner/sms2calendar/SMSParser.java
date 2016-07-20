@@ -2,7 +2,7 @@ package cn.sunner.sms2calendar;
 
 import android.provider.CalendarContract.Events;
 
-import java.util.GregorianCalendar;
+import java.util.Calendar;
 
 /**
  * Created by Sunner on 6/28/16.
@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 public abstract class SMSParser {
     protected String text;
     protected String title;
-    protected GregorianCalendar date;
+    protected Calendar date;
     protected String location;
     protected boolean valid = false;
 
@@ -25,7 +25,7 @@ public abstract class SMSParser {
         return title;
     }
 
-    public GregorianCalendar getDate() {
+    public Calendar getDate() {
         return date;
     }
 
