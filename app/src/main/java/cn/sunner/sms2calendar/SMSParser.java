@@ -49,4 +49,8 @@ public abstract class SMSParser {
         }
         return event;
     }
+
+    public String getText() {
+        return text;
+    }
 }

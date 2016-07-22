@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SMS to Calendar</string>
+    <string name="one_notification">One Notification</string>
 </resources>
