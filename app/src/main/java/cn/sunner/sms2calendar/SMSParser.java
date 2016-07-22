@@ -18,12 +18,6 @@ public abstract class SMSParser {
     public SMSParser(String text) {
         this.text = text;
         this.valid = parse();
-
-        // If no end time, set default to 1 hour
-        if (endTime == null) {
-            endTime = (Calendar) beginTime.clone();
-            endTime.add(Calendar.HOUR, 1);
-        }
     }
 
     protected abstract boolean parse();

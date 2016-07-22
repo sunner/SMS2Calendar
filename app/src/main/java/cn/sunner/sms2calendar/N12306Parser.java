@@ -34,6 +34,10 @@ public class N12306Parser extends SMSParser {
                 Integer.parseInt(m.group(6))    // Minute
         );
 
+        // set end time to 1 hour later
+        endTime = (Calendar) beginTime.clone();
+        endTime.add(Calendar.HOUR, 1);
+
         return true;
     }
 }
