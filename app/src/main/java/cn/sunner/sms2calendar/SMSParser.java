@@ -10,7 +10,8 @@ import java.util.Calendar;
 public abstract class SMSParser {
     protected String text;
     protected String title;
-    protected Calendar date;
+    protected Calendar startDate;
+    protected Calendar endDate;
     protected String location;
     protected boolean valid = false;
 
@@ -25,8 +26,12 @@ public abstract class SMSParser {
         return title;
     }
 
-    public Calendar getDate() {
-        return date;
+    public Calendar getStartDate() {
+        return startDate;
+    }
+
+    public Calendar getEndDate() {
+        return endDate;
     }
 
     public String getLocation() {
