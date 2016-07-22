@@ -10,14 +10,20 @@ import java.util.Calendar;
 public abstract class SMSParser {
     protected String text;
     protected String title;
-    protected Calendar startDate;
-    protected Calendar endDate;
-    protected String location;
+    protected Calendar beginTime;
+    protected Calendar endTime;
+    protected String location = "";
     protected boolean valid = false;
 
     public SMSParser(String text) {
         this.text = text;
         this.valid = parse();
+
+        // If no end time, set default to 1 hour
+        if (endTime == null) {
+            endTime = (Calendar) beginTime.clone();
+            endTime.add(Calendar.HOUR, 1);
+        }
     }
 
     protected abstract boolean parse();
@@ -26,12 +32,12 @@ public abstract class SMSParser {
         return title;
     }
 
-    public Calendar getStartDate() {
-        return startDate;
+    public Calendar getBeginTime() {
+        return beginTime;
     }
 
-    public Calendar getEndDate() {
-        return endDate;
+    public Calendar getEndTime() {
+        return endTime;
     }
 
     public String getLocation() {

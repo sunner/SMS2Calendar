@@ -26,7 +26,7 @@ public class N12306Parser extends SMSParser {
 
         this.title = m.group(3);
         this.location = m.group(4);
-        this.startDate = new GregorianCalendar(
+        this.beginTime = new GregorianCalendar(
                 Calendar.getInstance().get(Calendar.YEAR),   // Use this year
                 Integer.parseInt(m.group(1)),   // Month
                 Integer.parseInt(m.group(2)),   // Day
