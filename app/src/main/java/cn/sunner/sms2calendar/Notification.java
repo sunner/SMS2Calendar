@@ -21,6 +21,7 @@ public class Notification {
                 .setContentTitle(parser.getTitle())
                 .setContentText(parser.getText())
                 .setSmallIcon(R.drawable.ic_stat_icon)
+                .setAutoCancel(true)
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(parser.getText()));
 
