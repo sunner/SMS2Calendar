@@ -24,9 +24,9 @@ public class N12306Parser extends SMSParser {
             return false;
         }
 
-        this.title = m.group(3);
-        this.location = m.group(4);
-        this.beginTime = new GregorianCalendar(
+        title = m.group(3);
+        location = m.group(4) + "站";   // Append 站 to make it more accurate for maps
+        beginTime = new GregorianCalendar(
                 Calendar.getInstance().get(Calendar.YEAR),   // Use this year
                 Integer.parseInt(m.group(1)),   // Month
                 Integer.parseInt(m.group(2)),   // Day
