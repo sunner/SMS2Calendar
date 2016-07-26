@@ -3,4 +3,5 @@
     <string name="one_notification">一个通知</string>
     <string name="add">添加</string>
     <string name="dismiss">忽略</string>
+    <string name="notify_title">添加到日历</string>
 </resources>

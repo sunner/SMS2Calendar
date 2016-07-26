@@ -18,7 +18,7 @@ public class Notification {
 
         // Make a big notification with two button
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(context)
-                .setContentTitle(parser.getTitle())
+                .setContentTitle(context.getString(R.string.notify_title))
                 .setContentText(parser.getText())
                 .setSmallIcon(R.drawable.ic_stat_icon)
                 .setAutoCancel(true)
@@ -35,7 +35,7 @@ public class Notification {
                 .putExtra(Events.EVENT_LOCATION, parser.getLocation());
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, addEvent, PendingIntent.FLAG_ONE_SHOT);
         notifyBuilder.setContentIntent(pendingIntent);
-        NotificationCompat.Builder builder = notifyBuilder.addAction(R.drawable.ic_stat_add, context.getString(R.string.add), pendingIntent);
+        // NotificationCompat.Builder builder = notifyBuilder.addAction(R.drawable.ic_stat_add, context.getString(R.string.add), pendingIntent);
 
         notificationManager.notify(
                 (int) (System.currentTimeMillis() & 0x00000000FFFFFFFF), // So no notifications have the same id
