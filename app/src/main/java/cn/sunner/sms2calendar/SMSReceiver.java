@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class SMSReceiver extends BroadcastReceiver {
     private String TAG = "SMS2Cal";
 
@@ -31,16 +33,23 @@ public class SMSReceiver extends BroadcastReceiver {
             for (int i=0; i < msgs.length; i++) {
                 // Convert Object array
                 msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
-                // Sender's phone number
-                str += "SMS from " + msgs[i].getOriginatingAddress() + " : ";
-                // Fetch the text message
-                str += msgs[i].getMessageBody().toString();
-                // Newline
-                str += "\n";
+                SMSParser parser = getParser(msgs[i].getOriginatingAddress(), msgs[i].getMessageBody());
+                if (parser != null && parser.isValid()) {
+                    Notification.add(context, parser);
+                }
             }
-
-            // Display the entire SMS Message
-            Log.d(TAG, str);
         }
+    }
+
+    protected static SMSParser getParser(String fromNumber, String text) {
+        try {
+            Class <?> cls = Class.forName("cn.sunner.sms2calendar.N" + fromNumber + "Parser");
+            return (SMSParser) cls.getDeclaredConstructor(String.class).newInstance(text);
+        } catch (ClassNotFoundException e) {
+            // Do nothing. Not all phone number has a parser class
+        } catch (NoSuchMethodException | InstantiationException | InvocationTargetException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
