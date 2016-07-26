@@ -8,7 +8,6 @@ import android.provider.CalendarContract;
 import android.provider.CalendarContract.Events;
 import android.support.v4.app.NotificationCompat;
 
-
 /**
  * Created by Sunner on 7/21/16.
  */
@@ -17,11 +16,15 @@ public class Notification {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
+        // Make a big notification with two button
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(context)
                 .setContentTitle(parser.getTitle())
                 .setContentText(parser.getText())
-                .setSmallIcon(R.drawable.ic_notify_icon);
+                .setSmallIcon(R.drawable.ic_stat_icon)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(parser.getText()));
 
+        // Add event intent
         Intent addEvent = new Intent(Intent.ACTION_INSERT)
                 .setData(Events.CONTENT_URI)
                 .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, parser.getBeginTime().getTimeInMillis())
@@ -31,6 +34,7 @@ public class Notification {
                 .putExtra(Events.EVENT_LOCATION, parser.getLocation());
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, addEvent, PendingIntent.FLAG_ONE_SHOT);
         notifyBuilder.setContentIntent(pendingIntent);
+        NotificationCompat.Builder builder = notifyBuilder.addAction(R.drawable.ic_stat_add, context.getString(R.string.add), pendingIntent);
 
         notificationManager.notify(
                 (int) (System.currentTimeMillis() & 0x00000000FFFFFFFF), // So no notifications have the same id
