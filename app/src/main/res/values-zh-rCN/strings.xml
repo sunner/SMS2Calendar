@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">短信自动进日历</string>
+    <string name="app_name">短信通知进日历</string>
     <string name="one_notification">一个通知</string>
     <string name="add">添加</string>
     <string name="dismiss">忽略</string>
