@@ -42,19 +42,6 @@ public abstract class SMSParser {
         return valid;
     }
 
-    /**
-     * Return the event extracted from text
-     *
-     * @return return null when mismatch
-     */
-    public Events getEvent() {
-        Events event = null;
-        if (isValid()) {
-            // TODO: Forge calendar event
-        }
-        return event;
-    }
-
     public String getText() {
         return text;
     }
