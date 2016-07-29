@@ -16,7 +16,7 @@ public class Notification {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        // Make a big notification with two button
+        // Make a big notification
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(context)
                 .setContentTitle(context.getString(R.string.notify_title))
                 .setContentText(parser.getText())
