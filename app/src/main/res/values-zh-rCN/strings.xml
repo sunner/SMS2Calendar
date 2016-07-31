@@ -4,4 +4,7 @@
     <string name="add">添加</string>
     <string name="dismiss">忽略</string>
     <string name="notify_title">添加到日历</string>
+    <string name="event">事件</string>
+    <string name="location">地点</string>
+    <string name="time">时间</string>
 </resources>

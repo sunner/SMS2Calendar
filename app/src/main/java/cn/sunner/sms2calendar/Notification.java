@@ -19,11 +19,11 @@ public class Notification {
         // Make a big notification
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(context)
                 .setContentTitle(context.getString(R.string.notify_title))
-                .setContentText(parser.getText())
+                .setContentText(parser.getFormattedText(context))
                 .setSmallIcon(R.drawable.ic_stat_icon)
                 .setAutoCancel(true)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(parser.getText()));
+                        .bigText(parser.getFormattedText(context)));
 
         // Add event intent
         Intent addEvent = new Intent(Intent.ACTION_INSERT)

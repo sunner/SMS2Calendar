@@ -1,7 +1,10 @@
 package cn.sunner.sms2calendar;
 
+import android.app.Application;
+import android.content.Context;
 import android.provider.CalendarContract.Events;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 
 /**
@@ -44,5 +47,17 @@ public abstract class SMSParser {
 
     public String getText() {
         return text;
+    }
+
+    public String getFormattedText(Context context) {
+        DateFormat dateFormat = DateFormat.getDateTimeInstance();
+        String formattedText = "";
+
+        formattedText += context.getString(R.string.event) + ": " + getTitle() + "\n";
+        formattedText += context.getString(R.string.location) + ": " + getLocation() + "\n";
+        formattedText += context.getString(R.string.time) + ": " + dateFormat.format(getBeginTime().getTime());
+        formattedText += " - " + dateFormat.format(getEndTime().getTime());
+
+        return formattedText;
     }
 }
