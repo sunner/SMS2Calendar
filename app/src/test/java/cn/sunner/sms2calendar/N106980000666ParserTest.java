@@ -14,7 +14,7 @@ public class N106980000666ParserTest {
 
     @Test
     public void testParsePattern1() throws Exception {
-        SMSParser parser = new N106980000666Parser("已出票：订单9987654321『首都航空 JD5688 杭州萧山T3-海口美兰 10月1日9:00-10月1日11:35 陈丽玮，票号898-1234567890；孙志岗，票号898-1234567890』请提前2小时至机场值机。可在APP『行程』频道查看行程，值机选座、退改点击http://t.ctrip.cn/dFxBvc【携程网】");
+        SMSParser parser = new N106980000666Parser("已出票：订单9987654321『首都航空 JD5688 杭州萧山T3-海口美兰 10月1日9:00-10月1日11:35 陈美人，票号898-1234567890；孙志岗，票号898-1234567890』请提前2小时至机场值机。可在APP『行程』频道查看行程，值机选座、退改点击http://t.ctrip.cn/dFxBvc【携程网】");
         assertTrue(parser.isValid());
         assertEquals("首都航空JD5688", parser.getTitle());
         assertEquals("杭州萧山T3", parser.getLocation());
