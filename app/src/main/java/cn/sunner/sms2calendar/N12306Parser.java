@@ -11,6 +11,8 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Sunner on 6/29/16.
+ *
+ * Parse SMS from 12306 (China Railway)
  */
 public class N12306Parser extends SMSParser {
 

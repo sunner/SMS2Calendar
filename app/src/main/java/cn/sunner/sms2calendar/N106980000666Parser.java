@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Sunner on 6/29/16.
+ *
+ * Parse SMS from Ctrip
  */
 public class N106980000666Parser extends SMSParser {
 
@@ -16,11 +18,7 @@ public class N106980000666Parser extends SMSParser {
 
     @Override
     protected boolean parse() {
-        if (parse1()) {
-            return true;
-        } else {
-            return parse2();
-        }
+        return parse1() || parse2();
     }
 
     protected boolean parse1() {
