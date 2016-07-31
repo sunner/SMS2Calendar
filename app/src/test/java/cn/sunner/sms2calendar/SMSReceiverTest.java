@@ -19,7 +19,7 @@ public class SMSReceiverTest {
         assertTrue(parser.isValid());
         assertEquals("D2245次14车13F号", parser.getTitle());
         assertEquals("南京南站", parser.getLocation());
-        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 1, 24, 19, 11), parser.getBeginTime());
+        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 1 - 1, 24, 19, 11), parser.getBeginTime());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class SMSReceiverTest {
         assertTrue(parser.isValid());
         assertEquals("D2245次14车13F号", parser.getTitle());
         assertEquals("南京南站", parser.getLocation());
-        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 1, 24, 19, 11), parser.getBeginTime());
+        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 1 - 1, 24, 19, 11), parser.getBeginTime());
     }
 
     @Test

@@ -18,8 +18,8 @@ public class N106980000666ParserTest {
         assertTrue(parser.isValid());
         assertEquals("首都航空JD5688", parser.getTitle());
         assertEquals("杭州萧山T3", parser.getLocation());
-        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 10, 1, 9, 0), parser.getBeginTime());
-        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 10, 1, 11, 35), parser.getEndTime());
+        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 10 - 1, 1, 9, 0), parser.getBeginTime());
+        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 10 - 1, 1, 11, 35), parser.getEndTime());
     }
 
     @Test
@@ -28,8 +28,8 @@ public class N106980000666ParserTest {
         assertTrue(parser.isValid());
         assertEquals("中国国航CA1714", parser.getTitle());
         assertEquals("北京首都T3", parser.getLocation());
-        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 7, 23, 21, 10), parser.getBeginTime());
-        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 7, 23, 23, 30), parser.getEndTime());
+        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 7 - 1, 23, 21, 10), parser.getBeginTime());
+        assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 7 - 1, 23, 23, 30), parser.getEndTime());
     }
 
     @Test

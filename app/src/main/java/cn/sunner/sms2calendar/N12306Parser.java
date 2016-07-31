@@ -1,5 +1,9 @@
 package cn.sunner.sms2calendar;
 
+import android.nfc.Tag;
+import android.util.Log;
+
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
@@ -28,7 +32,7 @@ public class N12306Parser extends SMSParser {
         location = m.group(4) + "站";   // Append 站 to make it more accurate for maps
         beginTime = new GregorianCalendar(
                 Calendar.getInstance().get(Calendar.YEAR),   // Use this year
-                Integer.parseInt(m.group(1)),   // Month
+                Integer.parseInt(m.group(1)) - 1,   // Month. It is 0-based Σ( ° △ °|||)︴
                 Integer.parseInt(m.group(2)),   // Day
                 Integer.parseInt(m.group(5)),   // Hour
                 Integer.parseInt(m.group(6))    // Minute
