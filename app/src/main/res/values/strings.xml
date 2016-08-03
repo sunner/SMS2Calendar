@@ -7,4 +7,6 @@
     <string name="event">Event</string>
     <string name="location">Location</string>
     <string name="time">Time</string>
+    <string name="norun">You should NOT run me</string>
+    <string name="smstrigger" >When a SMS readable by me comes, I works.</string>
 </resources>
