@@ -55,8 +55,8 @@ public abstract class SMSParser {
 
         formattedText += context.getString(R.string.event) + ": " + getTitle() + "\n";
         formattedText += context.getString(R.string.location) + ": " + getLocation() + "\n";
-        formattedText += context.getString(R.string.time) + ": " + dateFormat.format(getBeginTime().getTime());
-        formattedText += " - " + dateFormat.format(getEndTime().getTime());
+        formattedText += context.getString(R.string.begin) + ": " + dateFormat.format(getBeginTime().getTime()) + "\n";
+        formattedText += context.getString(R.string.end) + ": " + dateFormat.format(getEndTime().getTime());
 
         return formattedText;
     }

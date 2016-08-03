@@ -9,4 +9,6 @@
     <string name="time">时间</string>
     <string name="norun">并不需要运行我</string>
     <string name="smstrigger">当收到我能读懂的短信，我就会工作。</string>
+    <string name="begin">开始</string>
+    <string name="end">结束</string>
 </resources>

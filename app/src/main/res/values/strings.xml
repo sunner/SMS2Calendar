@@ -9,4 +9,6 @@
     <string name="time">Time</string>
     <string name="norun">You should NOT run me</string>
     <string name="smstrigger" >When a SMS readable by me comes, I works.</string>
+    <string name="begin">Begin</string>
+    <string name="end">End</string>
 </resources>
