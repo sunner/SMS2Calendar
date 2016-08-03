@@ -24,6 +24,7 @@ public class N15558132322Parser extends SMSParser {
             Class <?> [] parserClasses = {
                     Class.forName("cn.sunner.sms2calendar.N12306Parser"),
                     Class.forName("cn.sunner.sms2calendar.N106980000666Parser"),
+                    Class.forName("cn.sunner.sms2calendar.N95539Parser"),
             };
 
             for (Class <?> parserClass: parserClasses) {
