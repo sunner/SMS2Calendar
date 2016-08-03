@@ -16,6 +16,10 @@ import java.util.regex.Pattern;
  */
 public class N12306Parser extends SMSParser {
 
+    // set end time to 1.5 hour later.
+    // Why 1.5 hours? Because it is between Hangzhou and Nanjing.
+    public final int DEFAULT_DURATION_IN_MINUTES = 90;
+
     public N12306Parser(String text) {
         super(text);
     }
@@ -40,9 +44,8 @@ public class N12306Parser extends SMSParser {
                 Integer.parseInt(m.group(6))    // Minute
         );
 
-        // set end time to 1 hour later
         endTime = (Calendar) beginTime.clone();
-        endTime.add(Calendar.HOUR, 1);
+        endTime.add(Calendar.MINUTE, DEFAULT_DURATION_IN_MINUTES);
 
         return true;
     }
