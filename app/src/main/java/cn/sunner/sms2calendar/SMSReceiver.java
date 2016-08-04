@@ -5,12 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
-import android.util.Log;
 
 import java.lang.reflect.InvocationTargetException;
 
 public class SMSReceiver extends BroadcastReceiver {
-    private String TAG = "SMS2Cal";
 
     public SMSReceiver() {
     }
