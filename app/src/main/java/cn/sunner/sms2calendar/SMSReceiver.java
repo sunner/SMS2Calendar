@@ -22,21 +22,22 @@ public class SMSReceiver extends BroadcastReceiver {
 
         SmsMessage[] msgs = null;
 
-        String str = "";
-
         if (bundle != null) {
             // Retrieve the SMS Messages received
             Object[] pdus = (Object[]) bundle.get("pdus");
             msgs = new SmsMessage[pdus.length];
 
-            // For every SMS message received
-            for (int i=0; i < msgs.length; i++) {
+            // Combine every SMS message received. big SMS may be separated.
+            String messageBody = "";
+            for (int i = 0; i < msgs.length; i++) {
                 // Convert Object array
                 msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
-                SMSParser parser = getParser(msgs[i].getOriginatingAddress(), msgs[i].getMessageBody());
-                if (parser != null && parser.isValid()) {
-                    Notification.add(context, parser);
-                }
+                messageBody += msgs[i].getMessageBody();
+            }
+
+            SMSParser parser = getParser(msgs[0].getOriginatingAddress(), messageBody);
+            if (parser != null && parser.isValid()) {
+                Notification.add(context, parser);
             }
         }
     }
