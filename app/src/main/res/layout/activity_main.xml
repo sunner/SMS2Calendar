@@ -18,11 +18,10 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="117dp"
         android:layout_alignWithParentIfMissing="false"
-        android:layout_alignParentLeft="false"
         android:enabled="false"
         android:textAlignment="center"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="@dimen/abc_text_size_display_2_material" />
+        android:textSize="@dimen/main_title" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +31,7 @@
         android:layout_below="@+id/textTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="88dp"
-        android:textSize="@dimen/abc_text_size_large_material"
+        android:textSize="@dimen/main_body"
         android:textAlignment="center"
         android:textColor="@android:color/primary_text_light" />
 
