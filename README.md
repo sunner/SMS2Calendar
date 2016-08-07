@@ -8,6 +8,6 @@ Supported SMS sources:
 
 1. China Railway (12306)
 2. Ctrip.com (106980000666)
-3. China Southern Airline (95539)
+3. China Southern Airlines (95539)
 
 If you can provide SMS and sources examples, I'd like to support them. Please submit at https://github.com/sunner/SMS2Calendar/issues

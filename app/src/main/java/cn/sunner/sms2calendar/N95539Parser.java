@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Sunner on 7/31/16.
  *
- * Parse SMS from China Southern Airline
+ * Parse SMS from China Southern Airlines
  */
 public class N95539Parser extends SMSParser {
 
