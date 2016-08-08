@@ -4,12 +4,16 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.provider.CalendarContract;
 import android.provider.CalendarContract.Events;
 import android.support.v4.app.NotificationCompat;
 
 /**
  * Created by Sunner on 7/21/16.
+ *
+ * Notification manager
  */
 public class Notification {
     public static boolean add(Context context, SMSParser parser){
@@ -24,6 +28,8 @@ public class Notification {
                 .setAutoCancel(true)
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(parser.getFormattedText(context)));
+        Bitmap bm = BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_launcher);
+        notifyBuilder.setLargeIcon(bm);
 
         // Add event intent
         Intent addEvent = new Intent(Intent.ACTION_INSERT)
