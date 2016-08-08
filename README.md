@@ -2,7 +2,7 @@
 
 [(中文版)](https://github.com/sunner/SMS2Calendar/blob/master/README_cn.md)
 
-This App is very easy to use. You even don't need to run it manually (on >= Android 6.0, run it at least once to get SMS permission). When a SMS contains schedule information, such as trains, flights and etc., is coming, it can remainder you in the notification bar. If you click the notification, it will add the event into calender.
+This App is very easy to use. You even don't need to run it manually (on >= Android 6.0, run it at least once to get SMS permission). When a SMS contains schedule information, such as trains, flights and etc., is coming, it can remainder you in the notification bar. If you click the notification, it will add the event into calendar.
 
 Supported SMS sources:
 
