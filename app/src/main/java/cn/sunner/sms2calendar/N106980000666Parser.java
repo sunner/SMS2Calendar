@@ -22,39 +22,38 @@ public class N106980000666Parser extends SMSParser {
     }
 
     protected boolean parse1() {
-        String pattern = ".*『(.+) ([A-Z0-9]+) (.+)-.+ (\\d+)月(\\d+)日(\\d+):(\\d+)-(\\d+)月(\\d+)日(\\d+):(\\d+).*";
-        Pattern r = Pattern.compile(pattern);
-        Matcher m = r.matcher(text);
+        String pattern = "（*\\d*）*(\\S+) ([A-Z0-9]{5,}) (\\S+)-\\S+ (\\d+)月(\\d+)日(\\d+):(\\d+)-(\\d+)月(\\d+)日(\\d+):(\\d+)";
+        Matcher m = Pattern.compile(pattern)
+                .matcher(text.substring(text.indexOf("『") + 1));    // Keep meaningful substring
 
-        if (!m.matches()) {
-            return false;
+        while (m.find()) {
+            Event event = new Event();
+            event.setText(text);
+
+            event.setTitle(m.group(1) + m.group(2));
+            event.setLocation(m.group(3));
+
+            event.setBeginTime(new GregorianCalendar(
+                            Calendar.getInstance().get(Calendar.YEAR),   // Use this year
+                            Integer.parseInt(m.group(4)) - 1,   // Month. It is 0-based Σ( ° △ °|||)︴
+                            Integer.parseInt(m.group(5)),   // Day
+                            Integer.parseInt(m.group(6)),   // Hour
+                            Integer.parseInt(m.group(7))    // Minute
+                    )
+            );
+            event.setEndTime(new GregorianCalendar(
+                            Calendar.getInstance().get(Calendar.YEAR),   // Use this year
+                            Integer.parseInt(m.group(8)) - 1,   // Month. It is 0-based Σ( ° △ °|||)︴
+                            Integer.parseInt(m.group(9)),   // Day
+                            Integer.parseInt(m.group(10)),   // Hour
+                            Integer.parseInt(m.group(11))    // Minute
+                    )
+            );
+
+            events.add(event);
         }
 
-        Event event = new Event();
-        event.setText(text);
-
-        event.setTitle(m.group(1) + m.group(2));
-        event.setLocation(m.group(3));
-
-        event.setBeginTime(new GregorianCalendar(
-                        Calendar.getInstance().get(Calendar.YEAR),   // Use this year
-                        Integer.parseInt(m.group(4)) - 1,   // Month. It is 0-based Σ( ° △ °|||)︴
-                        Integer.parseInt(m.group(5)),   // Day
-                        Integer.parseInt(m.group(6)),   // Hour
-                        Integer.parseInt(m.group(7))    // Minute
-                )
-        );
-        event.setEndTime(new GregorianCalendar(
-                        Calendar.getInstance().get(Calendar.YEAR),   // Use this year
-                        Integer.parseInt(m.group(8)) - 1,   // Month. It is 0-based Σ( ° △ °|||)︴
-                        Integer.parseInt(m.group(9)),   // Day
-                        Integer.parseInt(m.group(10)),   // Hour
-                        Integer.parseInt(m.group(11))    // Minute
-                )
-        );
-
-        events.add(event);
-        return true;
+        return !events.isEmpty();
     }
 
     protected boolean parse2() {
