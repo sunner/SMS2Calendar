@@ -1,9 +1,5 @@
 package cn.sunner.sms2calendar;
 
-import android.nfc.Tag;
-import android.util.Log;
-
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
