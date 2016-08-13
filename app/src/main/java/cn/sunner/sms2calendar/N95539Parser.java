@@ -17,32 +17,38 @@ public class N95539Parser extends SMSParser {
     }
 
     @Override
-    protected boolean parse() {
+    protected void parse() {
         String pattern = ".*。(\\d+)月(\\d+)日 ([A-Z0-9]+)航班，(.+\\))(\\d+):(\\d+)-.+\\)(\\d+):(\\d+).*";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(text);
 
         if (!m.matches()) {
-            return false;
+            return;
         }
 
-        title = "南方航空" + m.group(3);
-        location = m.group(4);
-        beginTime = new GregorianCalendar(
+        Event event = new Event();
+        event.setText(text);
+
+        event.setTitle("南方航空" + m.group(3));
+        event.setLocation(m.group(4));
+
+        event.setBeginTime(new GregorianCalendar(
                 Calendar.getInstance().get(Calendar.YEAR),   // Use this year
                 Integer.parseInt(m.group(1)) - 1,   // Month. It is 0-based Σ( ° △ °|||)︴
                 Integer.parseInt(m.group(2)),   // Day
                 Integer.parseInt(m.group(5)),   // Hour
                 Integer.parseInt(m.group(6))    // Minute
+            )
         );
-        endTime = new GregorianCalendar(
+        event.setEndTime(new GregorianCalendar(
                 Calendar.getInstance().get(Calendar.YEAR),   // Use this year
                 Integer.parseInt(m.group(1)) - 1,   // Month. It is 0-based Σ( ° △ °|||)︴
                 Integer.parseInt(m.group(2)),   // Day
                 Integer.parseInt(m.group(7)),   // Hour
                 Integer.parseInt(m.group(8))    // Minute
+            )
         );
 
-        return true;
+        events.add(event);
     }
 }

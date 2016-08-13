@@ -1,7 +1,7 @@
 package cn.sunner.sms2calendar;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by Sunner on 7/26/16.
@@ -17,8 +17,7 @@ public class N15558132322Parser extends SMSParser {
     }
 
     @Override
-    protected boolean parse() {
-
+    protected void parse() {
         // Try all other parsers
         try {
             Class <?> [] parserClasses = {
@@ -29,43 +28,16 @@ public class N15558132322Parser extends SMSParser {
 
             for (Class <?> parserClass: parserClasses) {
                 realParser = (SMSParser) parserClass.getDeclaredConstructor(String.class).newInstance(text);
-                if (realParser != null && realParser.isValid()) {
-                    return true;
-                }
+                if (realParser.getEvents().size() != 0)
+                    break;
             }
         } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
-        return false;
     }
 
     @Override
-    public String getTitle() {
-        return realParser.getTitle();
-    }
-
-    @Override
-    public Calendar getBeginTime() {
-        return realParser.getBeginTime();
-    }
-
-    @Override
-    public Calendar getEndTime() {
-        return realParser.getEndTime();
-    }
-
-    @Override
-    public String getLocation() {
-        return realParser.getLocation();
-    }
-
-    @Override
-    public boolean isValid() {
-        return realParser.isValid();
-    }
-
-    @Override
-    public String getText() {
-        return realParser.getText();
+    public List<Event> getEvents() {
+        return realParser.getEvents();
     }
 }

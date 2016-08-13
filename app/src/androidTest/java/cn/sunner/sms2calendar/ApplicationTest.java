@@ -21,6 +21,6 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     @Test
     public void testAddOne() throws Exception {
         SMSParser parser = new N12306Parser("订单EC11541789,孙先生您已购1月24日D2245次14车13F号南京南19:11开。【铁路客服】");
-        assertTrue(Notification.add(getSystemContext(), parser));
+        assertTrue(Notification.add(getSystemContext(), parser.getEvents().get(0)));
     }
 }

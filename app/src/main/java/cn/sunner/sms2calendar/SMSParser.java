@@ -5,59 +5,30 @@ import android.content.Context;
 import android.provider.CalendarContract.Events;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by Sunner on 6/28/16.
+ *
+ * Parse SMS and save events
  */
 public abstract class SMSParser {
+    protected List<Event> events = new ArrayList<>();
     protected String text;
-    protected String title;
-    protected Calendar beginTime;
-    protected Calendar endTime;
-    protected String location = "";
-    protected boolean valid = false;
 
     public SMSParser(String text) {
         this.text = text;
-        this.valid = parse();
+        parse();
     }
 
-    protected abstract boolean parse();
+    /**
+     * Parse text and extract events into this.events
+     */
+    protected abstract void parse();
 
-    public String getTitle() {
-        return title;
-    }
-
-    public Calendar getBeginTime() {
-        return beginTime;
-    }
-
-    public Calendar getEndTime() {
-        return endTime;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public String getFormattedText(Context context) {
-        DateFormat dateFormat = DateFormat.getDateTimeInstance();
-        String formattedText = "";
-
-        formattedText += context.getString(R.string.event) + ": " + getTitle() + "\n";
-        formattedText += context.getString(R.string.location) + ": " + getLocation() + "\n";
-        formattedText += context.getString(R.string.begin) + ": " + dateFormat.format(getBeginTime().getTime()) + "\n";
-        formattedText += context.getString(R.string.end) + ": " + dateFormat.format(getEndTime().getTime());
-
-        return formattedText;
+    public List<Event> getEvents() {
+        return events;
     }
 }

@@ -25,28 +25,34 @@ public class N12306Parser extends SMSParser {
     }
 
     @Override
-    protected boolean parse() {
+    protected void parse() {
         String pattern = ".*[购|签](\\d+)月(\\d+)日(.+[号|铺])([^\\d]+)(\\d+):(\\d+)开。.*";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(text);
 
         if (!m.matches()) {
-            return false;
+            return;
         }
 
-        title = m.group(3);
-        location = m.group(4) + "站";   // Append 站 to make it more accurate for maps
-        beginTime = new GregorianCalendar(
-                Calendar.getInstance().get(Calendar.YEAR),   // Use this year
-                Integer.parseInt(m.group(1)) - 1,   // Month. It is 0-based Σ( ° △ °|||)︴
-                Integer.parseInt(m.group(2)),   // Day
-                Integer.parseInt(m.group(5)),   // Hour
-                Integer.parseInt(m.group(6))    // Minute
+        Event event = new Event();
+        event.setText(text);
+
+        event.setTitle(m.group(3));
+        event.setLocation(m.group(4) + "站");    // Append 站 to make it more accurate for maps
+
+        Calendar beginTime = new GregorianCalendar(
+            Calendar.getInstance().get(Calendar.YEAR),   // Use this year
+            Integer.parseInt(m.group(1)) - 1,   // Month. It is 0-based Σ( ° △ °|||)︴
+            Integer.parseInt(m.group(2)),   // Day
+            Integer.parseInt(m.group(5)),   // Hour
+            Integer.parseInt(m.group(6))    // Minute
         );
+        event.setBeginTime(beginTime);
 
-        endTime = (Calendar) beginTime.clone();
+        Calendar endTime = (Calendar) beginTime.clone();
         endTime.add(Calendar.MINUTE, DEFAULT_DURATION_IN_MINUTES);
+        event.setEndTime(endTime);
 
-        return true;
+        events.add(event);
     }
 }

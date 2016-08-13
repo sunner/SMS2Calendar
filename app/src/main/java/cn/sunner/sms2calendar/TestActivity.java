@@ -14,6 +14,6 @@ public class TestActivity extends AppCompatActivity {
 
     public void addOneNotification(View view){
         SMSParser parser = new N12306Parser("订单EC11541789,孙先生您已购1月24日D2245次14车13F号南京南19:11开。【铁路客服】");
-        Notification.add(this, parser);
+        Notification.add(this, parser.getEvents().get(0));
     }
 }
