@@ -8,4 +8,5 @@
     <string name="smstrigger" >When a SMS readable by me comes, I works.</string>
     <string name="begin">Begin</string>
     <string name="end">End</string>
+    <string name="multi_notify">Multi Notifications</string>
 </resources>

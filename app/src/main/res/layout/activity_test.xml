@@ -14,7 +14,17 @@
         android:layout_height="wrap_content"
         android:text="@string/one_notification"
         android:id="@+id/button"
-        android:layout_centerVertical="true"
+        android:onClick="addOneNotification"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:onClick="addOneNotification" />
+        android:layout_marginTop="222dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/multi_notify"
+        android:id="@+id/button2"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:onClick="addMultiNotification" />
 </RelativeLayout>

@@ -39,12 +39,15 @@ public class Notification {
                 .putExtra(Events.TITLE, event.getTitle())
                 .putExtra(Events.DESCRIPTION, event.getText())
                 .putExtra(Events.EVENT_LOCATION, event.getLocation());
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, addEvent, PendingIntent.FLAG_ONE_SHOT);
+
+        // An unique id
+        int uniqueId = (int) System.currentTimeMillis();
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, uniqueId, addEvent, PendingIntent.FLAG_UPDATE_CURRENT);
         notifyBuilder.setContentIntent(pendingIntent);
         // NotificationCompat.Builder builder = notifyBuilder.addAction(R.drawable.ic_stat_add, context.getString(R.string.add), pendingIntent);
 
         notificationManager.notify(
-                (int) (System.currentTimeMillis() & 0x00000000FFFFFFFF), // So no notifications have the same id
+                uniqueId, // So no notifications have the same id
                 notifyBuilder.build());
 
         return true;
