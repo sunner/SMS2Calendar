@@ -5,6 +5,9 @@ import android.test.ApplicationTestCase;
 
 import org.junit.Test;
 
+import cn.sunner.sms2calendar.parser.N12306Parser;
+import cn.sunner.sms2calendar.parser.SMSParser;
+
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */

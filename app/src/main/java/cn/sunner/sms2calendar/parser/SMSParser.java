@@ -1,7 +1,9 @@
-package cn.sunner.sms2calendar;
+package cn.sunner.sms2calendar.parser;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.sunner.sms2calendar.Event;
 
 /**
  * Created by Sunner on 6/28/16.

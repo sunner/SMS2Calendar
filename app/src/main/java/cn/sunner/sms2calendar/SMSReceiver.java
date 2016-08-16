@@ -9,6 +9,8 @@ import android.telephony.SmsMessage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import cn.sunner.sms2calendar.parser.SMSParser;
+
 public class SMSReceiver extends BroadcastReceiver {
 
     public SMSReceiver() {
@@ -48,7 +50,7 @@ public class SMSReceiver extends BroadcastReceiver {
 
     protected static SMSParser getParser(String fromNumber, String text) {
         try {
-            Class <?> cls = Class.forName("cn.sunner.sms2calendar.N" + fromNumber + "Parser");
+            Class <?> cls = Class.forName("cn.sunner.sms2calendar.parser.N" + fromNumber + "Parser");
             return (SMSParser) cls.getDeclaredConstructor(String.class).newInstance(text);
         } catch (ClassNotFoundException e) {
             // Do nothing. Not all phone number has a parser class

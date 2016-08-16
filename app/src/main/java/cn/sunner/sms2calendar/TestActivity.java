@@ -6,6 +6,10 @@ import android.view.View;
 
 import java.util.List;
 
+import cn.sunner.sms2calendar.parser.N106980000666Parser;
+import cn.sunner.sms2calendar.parser.N12306Parser;
+import cn.sunner.sms2calendar.parser.SMSParser;
+
 public class TestActivity extends AppCompatActivity {
 
     @Override

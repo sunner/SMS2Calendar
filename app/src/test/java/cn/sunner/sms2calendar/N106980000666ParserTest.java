@@ -6,6 +6,9 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import cn.sunner.sms2calendar.parser.N106980000666Parser;
+import cn.sunner.sms2calendar.parser.SMSParser;
+
 import static org.junit.Assert.assertEquals;
 
 /**

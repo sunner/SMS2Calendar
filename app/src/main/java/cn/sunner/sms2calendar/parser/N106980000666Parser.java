@@ -1,9 +1,11 @@
-package cn.sunner.sms2calendar;
+package cn.sunner.sms2calendar.parser;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import cn.sunner.sms2calendar.Event;
 
 /**
  * Created by Sunner on 6/29/16.

@@ -1,7 +1,9 @@
-package cn.sunner.sms2calendar;
+package cn.sunner.sms2calendar.parser;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
+import cn.sunner.sms2calendar.Event;
 
 /**
  * Created by Sunner on 7/26/16.
@@ -21,9 +23,9 @@ public class N15558132322Parser extends SMSParser {
         // Try all other parsers
         try {
             Class <?> [] parserClasses = {
-                    Class.forName("cn.sunner.sms2calendar.N12306Parser"),
-                    Class.forName("cn.sunner.sms2calendar.N106980000666Parser"),
-                    Class.forName("cn.sunner.sms2calendar.N95539Parser"),
+                    Class.forName("cn.sunner.sms2calendar.parser.N12306Parser"),
+                    Class.forName("cn.sunner.sms2calendar.parser.N106980000666Parser"),
+                    Class.forName("cn.sunner.sms2calendar.parser.N95539Parser"),
             };
 
             for (Class <?> parserClass: parserClasses) {
