@@ -35,10 +35,13 @@ public class Notification {
         Intent addEvent = new Intent(Intent.ACTION_INSERT)
                 .setData(Events.CONTENT_URI)
                 .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, event.getBeginTime().getTimeInMillis())
-                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, event.getEndTime().getTimeInMillis())
                 .putExtra(Events.TITLE, event.getTitle())
                 .putExtra(Events.DESCRIPTION, event.getText())
                 .putExtra(Events.EVENT_LOCATION, event.getLocation());
+
+        if (event.getEndTime() != null) {
+            addEvent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, event.getEndTime().getTimeInMillis());
+        }
 
         // An unique id
         int uniqueId = (int) System.currentTimeMillis();

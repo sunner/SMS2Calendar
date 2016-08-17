@@ -14,10 +14,6 @@ import cn.sunner.sms2calendar.Event;
  */
 public class N12306Parser extends SMSParser {
 
-    // set end time to 1.5 hour later.
-    // Why 1.5 hours? Because it is between Hangzhou and Nanjing.
-    public final int DEFAULT_DURATION_IN_MINUTES = 90;
-
     public N12306Parser(String text) {
         super(text);
     }
@@ -46,10 +42,6 @@ public class N12306Parser extends SMSParser {
             Integer.parseInt(m.group(6))    // Minute
         );
         event.setBeginTime(beginTime);
-
-        Calendar endTime = (Calendar) beginTime.clone();
-        endTime.add(Calendar.MINUTE, DEFAULT_DURATION_IN_MINUTES);
-        event.setEndTime(endTime);
 
         events.add(event);
     }

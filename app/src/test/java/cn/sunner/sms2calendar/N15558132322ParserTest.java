@@ -27,6 +27,7 @@ public class N15558132322ParserTest {
         assertEquals("D2245次14车13F号", event.getTitle());
         assertEquals("南京南站", event.getLocation());
         assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 1 - 1, 24, 19, 11), event.getBeginTime());
+        assertNull(event.getEndTime());
     }
 
     @Test

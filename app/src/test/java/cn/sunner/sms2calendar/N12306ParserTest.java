@@ -10,6 +10,7 @@ import cn.sunner.sms2calendar.parser.N12306Parser;
 import cn.sunner.sms2calendar.parser.SMSParser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  * Created by Sunner on 7/16/16.
@@ -27,6 +28,7 @@ public class N12306ParserTest {
         assertEquals("D2245次14车13F号", event.getTitle());
         assertEquals("南京南站", event.getLocation());
         assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 1 - 1, 24, 19, 11), event.getBeginTime());
+        assertNull(event.getEndTime());
     }
 
     @Test
@@ -40,6 +42,7 @@ public class N12306ParserTest {
         assertEquals("D2245次14车12D号、4C号", event.getTitle());
         assertEquals("上海虹桥站", event.getLocation());
         assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 12 - 1, 9, 19, 11), event.getBeginTime());
+        assertNull(event.getEndTime());
     }
 
     @Test
@@ -53,6 +56,7 @@ public class N12306ParserTest {
         assertEquals("Z176次12车31号下铺、36号上铺", event.getTitle());
         assertEquals("杭州站", event.getLocation());
         assertEquals(new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), 2 - 1, 1, 9, 30), event.getBeginTime());
+        assertNull(event.getEndTime());
     }
 
     @Test

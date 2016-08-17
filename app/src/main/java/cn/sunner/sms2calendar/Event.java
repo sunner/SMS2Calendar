@@ -11,8 +11,8 @@ import java.util.Calendar;
  * Calendar events.
  */
 public class Event {
-    protected String text;
-    protected String title;
+    protected String text = "";
+    protected String title = "";
     protected Calendar beginTime;
     protected Calendar endTime;
     protected String location = "";
