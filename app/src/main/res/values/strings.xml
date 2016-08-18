@@ -9,4 +9,5 @@
     <string name="begin">Begin</string>
     <string name="end">End</string>
     <string name="multi_notify">Multi Notifications</string>
+    <string name="na">N/A</string>
 </resources>

@@ -9,4 +9,5 @@
     <string name="begin">开始</string>
     <string name="end">结束</string>
     <string name="multi_notify">多个通知</string>
+    <string name="na">未知</string>
 </resources>
